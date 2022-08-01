@@ -16,6 +16,11 @@
 		7B392282289219F6009425F5 /* Regions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B392281289219F6009425F5 /* Regions.swift */; };
 		7B49E1782894B19000D703DF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B49E1772894B19000D703DF /* Constants.swift */; };
 		7B49E17A2895D20000D703DF /* SelectedCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B49E1792895D20000D703DF /* SelectedCellView.swift */; };
+		7B49E17C289743A200D703DF /* RCButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B49E17B289743A200D703DF /* RCButton.swift */; };
+		7B49E1872897C02600D703DF /* RCAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B49E1862897C02600D703DF /* RCAlertVC.swift */; };
+		7B49E1892897C18900D703DF /* RCContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B49E1882897C18900D703DF /* RCContainerView.swift */; };
+		7B49E18B2897C23800D703DF /* RCBodyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B49E18A2897C23800D703DF /* RCBodyLabel.swift */; };
+		7B49E18D2897CA7600D703DF /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B49E18C2897CA7600D703DF /* UIViewController+Ext.swift */; };
 		7B5936F6289371190025F90F /* RCInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5936F5289371190025F90F /* RCInfoView.swift */; };
 		7B791D7528906AAC0003BF5F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B791D7428906AAC0003BF5F /* AppDelegate.swift */; };
 		7B791D7728906AAC0003BF5F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B791D7628906AAC0003BF5F /* SceneDelegate.swift */; };
@@ -33,6 +38,11 @@
 		7B392281289219F6009425F5 /* Regions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Regions.swift; sourceTree = "<group>"; };
 		7B49E1772894B19000D703DF /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		7B49E1792895D20000D703DF /* SelectedCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedCellView.swift; sourceTree = "<group>"; };
+		7B49E17B289743A200D703DF /* RCButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCButton.swift; sourceTree = "<group>"; };
+		7B49E1862897C02600D703DF /* RCAlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCAlertVC.swift; sourceTree = "<group>"; };
+		7B49E1882897C18900D703DF /* RCContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCContainerView.swift; sourceTree = "<group>"; };
+		7B49E18A2897C23800D703DF /* RCBodyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCBodyLabel.swift; sourceTree = "<group>"; };
+		7B49E18C2897CA7600D703DF /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
 		7B5936F5289371190025F90F /* RCInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCInfoView.swift; sourceTree = "<group>"; };
 		7B791D7128906AAC0003BF5F /* RTCompanion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RTCompanion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B791D7428906AAC0003BF5F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -84,12 +94,12 @@
 		7B392284289223D4009425F5 /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
-				7B39227D289205B5009425F5 /* RCTitleLabel.swift */,
-				7B3922782891F180009425F5 /* RegionImageView.swift */,
-				7B3922762891F111009425F5 /* RegionCell.swift */,
-				7B3922742891EBFB009425F5 /* RegionSelectionVC.swift */,
-				7B5936F5289371190025F90F /* RCInfoView.swift */,
-				7B49E1792895D20000D703DF /* SelectedCellView.swift */,
+				7B49E1852897BFEC00D703DF /* View Controllers */,
+				7B49E1842897BFD500D703DF /* Views */,
+				7B49E1832897BFC300D703DF /* Buttons */,
+				7B49E1812897BF7D00D703DF /* Image Views */,
+				7B49E1802897BF6F00D703DF /* Labels */,
+				7B49E17D2897BF3100D703DF /* Cells */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -98,8 +108,68 @@
 			isa = PBXGroup;
 			children = (
 				7B39227F28920820009425F5 /* UIView+Ext.swift */,
+				7B49E18C2897CA7600D703DF /* UIViewController+Ext.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		7B49E17D2897BF3100D703DF /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				7B49E1792895D20000D703DF /* SelectedCellView.swift */,
+				7B3922762891F111009425F5 /* RegionCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		7B49E1802897BF6F00D703DF /* Labels */ = {
+			isa = PBXGroup;
+			children = (
+				7B39227D289205B5009425F5 /* RCTitleLabel.swift */,
+				7B49E18A2897C23800D703DF /* RCBodyLabel.swift */,
+			);
+			path = Labels;
+			sourceTree = "<group>";
+		};
+		7B49E1812897BF7D00D703DF /* Image Views */ = {
+			isa = PBXGroup;
+			children = (
+				7B3922782891F180009425F5 /* RegionImageView.swift */,
+			);
+			path = "Image Views";
+			sourceTree = "<group>";
+		};
+		7B49E1822897BF9100D703DF /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				7B3922742891EBFB009425F5 /* RegionSelectionVC.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		7B49E1832897BFC300D703DF /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				7B49E17B289743A200D703DF /* RCButton.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
+		7B49E1842897BFD500D703DF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7B5936F5289371190025F90F /* RCInfoView.swift */,
+				7B49E1882897C18900D703DF /* RCContainerView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		7B49E1852897BFEC00D703DF /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				7B49E1862897C02600D703DF /* RCAlertVC.swift */,
+			);
+			path = "View Controllers";
 			sourceTree = "<group>";
 		};
 		7B791D6828906AAC0003BF5F = {
@@ -121,6 +191,7 @@
 		7B791D7328906AAC0003BF5F /* RTCompanion */ = {
 			isa = PBXGroup;
 			children = (
+				7B49E1822897BF9100D703DF /* Screens */,
 				7B392284289223D4009425F5 /* Custom Views */,
 				7B39228328921C31009425F5 /* Models */,
 				7B3922852892287F009425F5 /* Extensions */,
@@ -203,16 +274,21 @@
 			files = (
 				7B39228028920820009425F5 /* UIView+Ext.swift in Sources */,
 				7B49E1782894B19000D703DF /* Constants.swift in Sources */,
+				7B49E18D2897CA7600D703DF /* UIViewController+Ext.swift in Sources */,
+				7B49E1872897C02600D703DF /* RCAlertVC.swift in Sources */,
 				7B3922752891EBFB009425F5 /* RegionSelectionVC.swift in Sources */,
 				7B791D7528906AAC0003BF5F /* AppDelegate.swift in Sources */,
 				7B39227E289205B5009425F5 /* RCTitleLabel.swift in Sources */,
 				7B49E17A2895D20000D703DF /* SelectedCellView.swift in Sources */,
 				7B791D7728906AAC0003BF5F /* SceneDelegate.swift in Sources */,
+				7B49E17C289743A200D703DF /* RCButton.swift in Sources */,
 				7B3922772891F111009425F5 /* RegionCell.swift in Sources */,
 				7B3922792891F180009425F5 /* RegionImageView.swift in Sources */,
 				7B5936F6289371190025F90F /* RCInfoView.swift in Sources */,
 				7B39227C2891F761009425F5 /* UIHelper.swift in Sources */,
 				7B392282289219F6009425F5 /* Regions.swift in Sources */,
+				7B49E1892897C18900D703DF /* RCContainerView.swift in Sources */,
+				7B49E18B2897C23800D703DF /* RCBodyLabel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

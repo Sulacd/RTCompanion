@@ -15,6 +15,7 @@ class RegionSelectionVC: UIViewController {
     let stackView = UIStackView()
     let regionBubble1 = RCInfoView()
     let regionBubble2 = RCInfoView()
+    let actionButton = RCButton(color: .systemTeal, title: "Get Cards", systemImageName: "arrowshape.turn.up.right.circle")
     
     var regionSelected1: String!
     var regionSelected2: String!
@@ -23,10 +24,15 @@ class RegionSelectionVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureStackView()
         configureCollectionView()
         configureVC()
         navigationController?.setNavigationBarHidden(true, animated: true)
+        
+        actionButton.addTarget(self, action: #selector(showAlert), for: .touchUpInside)
+    }
+    
+    @objc private func showAlert() {
+        presentRCAlert(title: "Error", message: "Please select your oponent's two regions", buttonTitle: "Ok")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -39,32 +45,19 @@ class RegionSelectionVC: UIViewController {
     private func configureVC() {
         title = "Selection"
         view.backgroundColor = .systemGroupedBackground
-        view.addSubViews(stackView, collectionView)
-        
-        let padding: CGFloat = 100
+        view.addSubViews(actionButton, collectionView)
         
         NSLayoutConstraint.activate([
-            stackView.topAnchor.constraint(equalTo: view.topAnchor, constant: padding),
-            stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
-            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
-            stackView.heightAnchor.constraint(equalToConstant: 80),
-
-            collectionView.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 50),
+            collectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: 80),
             collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            collectionView.bottomAnchor.constraint(equalTo: actionButton.topAnchor),
+            
+            actionButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -100),
+            actionButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
+            actionButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50),
+            actionButton.heightAnchor.constraint(equalToConstant: 50)
         ])
-    }
-    
-    private func configureStackView() {
-        
-        stackView.axis = .horizontal
-        stackView.distribution = .equalSpacing
-        
-        stackView.addArrangedSubview(regionBubble1)
-        stackView.addArrangedSubview(regionBubble2)
-        
-        stackView.translatesAutoresizingMaskIntoConstraints = false
     }
     
     private func configureCollectionView() {

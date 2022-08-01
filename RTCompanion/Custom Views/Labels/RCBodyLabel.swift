@@ -1,14 +1,14 @@
 //
-//  RCTitleLabel.swift
+//  RCBodyLabel.swift
 //  RTCompanion
 //
-//  Created by Christian Diaz on 7/27/22.
+//  Created by Christian Diaz on 8/1/22.
 //
 
 import UIKit
 
-class RCTitleLabel: UILabel {
-    
+class RCBodyLabel: UILabel {
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         configure()
@@ -18,18 +18,18 @@ class RCTitleLabel: UILabel {
         fatalError("init(coder:) has not been implemented")
     }
     
-    convenience init(textAlignment: NSTextAlignment, fontSize: CGFloat) {
+    convenience init(textAlignment: NSTextAlignment) {
         self.init(frame: .zero)
         self.textAlignment = textAlignment
-        self.font = UIFont.systemFont(ofSize: fontSize, weight: .medium)
     }
     
     private func configure() {
-        textColor = .white
+        textColor = .secondaryLabel
+        font = UIFont.preferredFont(forTextStyle: .body)
+        adjustsFontForContentSizeCategory = true
         adjustsFontSizeToFitWidth = true
-        minimumScaleFactor = 0.9
-        lineBreakMode = .byTruncatingTail
+        minimumScaleFactor = 0.75
+        lineBreakMode = .byWordWrapping
         translatesAutoresizingMaskIntoConstraints = false
     }
-
 }
