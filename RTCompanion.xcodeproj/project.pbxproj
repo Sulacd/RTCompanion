@@ -27,6 +27,7 @@
 		7B49E19B289918CF00D703DF /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B49E19A289918CF00D703DF /* Protocols.swift */; };
 		7B49E19D289AFB5400D703DF /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B49E19C289AFB5400D703DF /* Category.swift */; };
 		7B49E1A1289B150900D703DF /* CardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B49E1A0289B150900D703DF /* CardCell.swift */; };
+		7B49E1A3289B527700D703DF /* CollectionViewHeaderReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B49E1A2289B527700D703DF /* CollectionViewHeaderReusableView.swift */; };
 		7B5936F6289371190025F90F /* RCInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5936F5289371190025F90F /* RCInfoView.swift */; };
 		7B791D7528906AAC0003BF5F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B791D7428906AAC0003BF5F /* AppDelegate.swift */; };
 		7B791D7728906AAC0003BF5F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B791D7628906AAC0003BF5F /* SceneDelegate.swift */; };
@@ -55,6 +56,7 @@
 		7B49E19A289918CF00D703DF /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		7B49E19C289AFB5400D703DF /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		7B49E1A0289B150900D703DF /* CardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCell.swift; sourceTree = "<group>"; };
+		7B49E1A2289B527700D703DF /* CollectionViewHeaderReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewHeaderReusableView.swift; sourceTree = "<group>"; };
 		7B5936F5289371190025F90F /* RCInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCInfoView.swift; sourceTree = "<group>"; };
 		7B791D7128906AAC0003BF5F /* RTCompanion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RTCompanion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B791D7428906AAC0003BF5F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 		7B49E17D2897BF3100D703DF /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				7B49E1A2289B527700D703DF /* CollectionViewHeaderReusableView.swift */,
 				7B49E1792895D20000D703DF /* SelectedCellView.swift */,
 				7B3922762891F111009425F5 /* RegionCell.swift */,
 				7B49E1A0289B150900D703DF /* CardCell.swift */,
@@ -313,6 +316,7 @@
 				7B791D7728906AAC0003BF5F /* SceneDelegate.swift in Sources */,
 				7B49E17C289743A200D703DF /* RCButton.swift in Sources */,
 				7B3922772891F111009425F5 /* RegionCell.swift in Sources */,
+				7B49E1A3289B527700D703DF /* CollectionViewHeaderReusableView.swift in Sources */,
 				7B3922792891F180009425F5 /* RCImageView.swift in Sources */,
 				7B5936F6289371190025F90F /* RCInfoView.swift in Sources */,
 				7B39227C2891F761009425F5 /* UIHelper.swift in Sources */,

@@ -23,10 +23,7 @@ class CardCell: UICollectionViewCell {
     }
     
     private func configure() {
-        contentView.backgroundColor = .secondarySystemGroupedBackground
-
-        contentView.layer.cornerRadius = 20
-        contentView.layer.masksToBounds = true
+        contentView.backgroundColor = .clear
         
         contentView.addSubViews(cardImageView)
         

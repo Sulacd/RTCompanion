@@ -25,4 +25,26 @@ enum UIHelper {
         
         return flowLayout
     }
+    
+    static func createCompositionalLayout() -> UICollectionViewCompositionalLayout {
+        
+        let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)))
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(0.45), heightDimension: .fractionalHeight(0.22)), subitems: [item])
+        let section = NSCollectionLayoutSection(group: group)
+
+        section.orthogonalScrollingBehavior = .continuous
+        section.interGroupSpacing = 10
+        section.boundarySupplementaryItems = [supplementaryHeaderItem()]
+        
+        return UICollectionViewCompositionalLayout(section: section)
+    }
+    
+    static func supplementaryHeaderItem() -> NSCollectionLayoutBoundarySupplementaryItem {
+        NSCollectionLayoutBoundarySupplementaryItem(
+            layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .absolute(50)),
+            elementKind: UICollectionView.elementKindSectionHeader,
+            alignment: .top)
+    }
 }
+
+

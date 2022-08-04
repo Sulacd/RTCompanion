@@ -21,6 +21,7 @@ class RCImageView: UIImageView {
     private func configure() {
         clipsToBounds = true
         translatesAutoresizingMaskIntoConstraints = false
+        layer.cornerRadius = 20
     }
 
 }
