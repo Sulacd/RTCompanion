@@ -11,11 +11,12 @@ class RegionCell: UICollectionViewCell {
     
     static let reuseID = "RegionCell"
     
-    let regionImageView = RegionImageView(frame: .zero)
-    let regionLabel = RCTitleLabel(textAlignment: .center, fontSize: 16)
+    let regionImageView = RCImageView(frame: .zero)
     let selectedCell = SelectedCellView(frame: .zero)
     
     var isPressed = false
+    // Optional int flag to determine which cell is marked region 1 and which is region 2
+    var regionNum: Int?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -32,8 +33,6 @@ class RegionCell: UICollectionViewCell {
 
         contentView.layer.cornerRadius = 20
         contentView.layer.masksToBounds = true
-        layer.cornerRadius = 20
-        layer.masksToBounds = true
         
         contentView.addSubViews(regionImageView)
         

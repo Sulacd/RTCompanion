@@ -30,7 +30,7 @@ class RCContainerView: UIView {
         layer.cornerRadius = 16
         translatesAutoresizingMaskIntoConstraints = false
         
-        let blurEffect = UIBlurEffect(style: .systemThinMaterial)
+        let blurEffect = UIBlurEffect(style: .systemUltraThinMaterial)
         let blurView = UIVisualEffectView(effect: blurEffect)
         
         blurView.frame = self.bounds

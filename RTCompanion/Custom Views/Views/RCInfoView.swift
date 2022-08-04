@@ -10,7 +10,7 @@ import UIKit
 class RCInfoView: UIView {
 
     let regionLabel = RCTitleLabel(textAlignment: .center, fontSize: 20)
-    let selectedIcon = RegionImageView(frame: .zero)
+    let selectedIcon = RCImageView(frame: .zero)
     
     override init(frame: CGRect) {
         super.init(frame: frame)

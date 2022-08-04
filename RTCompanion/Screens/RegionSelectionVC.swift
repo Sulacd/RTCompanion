@@ -13,26 +13,20 @@ class RegionSelectionVC: UIViewController {
     
     var collectionView: UICollectionView!
     let stackView = UIStackView()
-    let regionBubble1 = RCInfoView()
-    let regionBubble2 = RCInfoView()
-    let actionButton = RCButton(color: .systemTeal, title: "Get Cards", systemImageName: "arrowshape.turn.up.right.circle")
+    let actionButton = RCButton(color: .systemTeal, title: "Get Cards", systemImageName: "square.stack.3d.up")
     
-    var regionSelected1: String!
-    var regionSelected2: String!
+    var regionSelected1: String?
+    var regionSelected2: String?
     
     var numOfCellsSelected = 0
 
+// MARK: - Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureCollectionView()
         configureVC()
         navigationController?.setNavigationBarHidden(true, animated: true)
-        
-        actionButton.addTarget(self, action: #selector(showAlert), for: .touchUpInside)
-    }
-    
-    @objc private func showAlert() {
-        presentRCAlert(title: "Error", message: "Please select your oponent's two regions", buttonTitle: "Ok")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -40,12 +34,14 @@ class RegionSelectionVC: UIViewController {
         navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
-// MARK: - Configurations
+// MARK: - Configurations & Layout Constraints
     
     private func configureVC() {
         title = "Selection"
         view.backgroundColor = .systemGroupedBackground
         view.addSubViews(actionButton, collectionView)
+        
+        actionButton.addTarget(self, action: #selector(showAlert), for: .touchUpInside)
         
         NSLayoutConstraint.activate([
             collectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: 80),
@@ -71,11 +67,22 @@ class RegionSelectionVC: UIViewController {
         collectionView.register(RegionCell.self, forCellWithReuseIdentifier: RegionCell.reuseID)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
     }
+    
+// MARK: - Action Button Functionality
+    
+    @objc private func showAlert() {
+        if numOfCellsSelected < 2 {
+            presentRCAlert(title: "Error", message: "Please select your oponent's two regions", buttonTitle: "Ok")
+        }
+        else {
+            let cardsDisplayVC = CardsDisplayVC(region1: regionSelected1, region2: regionSelected2)
+            navigationController?.pushViewController(cardsDisplayVC, animated: true)
+        }
+    }
+    
 }
 
 // MARK: - Extensions
-
-
 
 extension RegionSelectionVC: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -88,6 +95,14 @@ extension RegionSelectionVC: UICollectionViewDelegate {
                     cell.contentView.addSubview(cell.selectedCell)
                     cell.isPressed = true
                     numOfCellsSelected += 1
+                    
+                    if let _ = regionSelected1 {
+                        cell.regionNum = 2
+                        regionSelected2 = regions.regionNames[indexPath.row]
+                        return
+                    }
+                    cell.regionNum = 1
+                    regionSelected1 = regions.regionNames[indexPath.row]
                     return
                 }
                 return
@@ -95,19 +110,26 @@ extension RegionSelectionVC: UICollectionViewDelegate {
             cell.isPressed = false
             numOfCellsSelected -= 1
             cell.selectedCell.removeFromSuperview()
+            
+            if cell.regionNum == 1 {
+                regionSelected1 = nil
+            }
+            else {
+                regionSelected2 = nil
+            }
+            cell.regionNum = nil
         }
     }
 }
 
 extension RegionSelectionVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 11
+        return regions.regionIcons.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RegionCell.reuseID, for: indexPath) as! RegionCell
         cell.regionImageView.image = regions.regionIcons[indexPath.row]
-        cell.regionLabel.text = regions.regionNames[indexPath.row]
         return cell
     }
 }
