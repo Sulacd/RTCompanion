@@ -29,12 +29,14 @@ enum UIHelper {
     static func createCompositionalLayout() -> UICollectionViewCompositionalLayout {
         
         let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)))
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(0.45), heightDimension: .fractionalHeight(0.22)), subitems: [item])
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(0.38), heightDimension: .fractionalHeight(0.17)), subitems: [item])
         let section = NSCollectionLayoutSection(group: group)
 
         section.orthogonalScrollingBehavior = .continuous
         section.interGroupSpacing = 10
+        section.contentInsets = .init(top: 0, leading: 10, bottom: 0, trailing: 10)
         section.boundarySupplementaryItems = [supplementaryHeaderItem()]
+        section.supplementariesFollowContentInsets = false
         
         return UICollectionViewCompositionalLayout(section: section)
     }

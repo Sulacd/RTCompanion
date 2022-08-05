@@ -15,8 +15,8 @@ class RegionSelectionVC: UIViewController {
     let stackView = UIStackView()
     let actionButton = RCButton(color: .systemTeal, title: "Get Cards", systemImageName: "square.stack.3d.up")
     
-    var regionSelected1: String?
-    var regionSelected2: String?
+    var regionSelected1: RCImageView!
+    var regionSelected2: RCImageView!
     
     var numOfCellsSelected = 0
 
@@ -98,11 +98,11 @@ extension RegionSelectionVC: UICollectionViewDelegate {
                     
                     if let _ = regionSelected1 {
                         cell.regionNum = 2
-                        regionSelected2 = regions.regionNames[indexPath.row]
+                        regionSelected2 = cell.regionImageView
                         return
                     }
                     cell.regionNum = 1
-                    regionSelected1 = regions.regionNames[indexPath.row]
+                    regionSelected1 = cell.regionImageView
                     return
                 }
                 return

@@ -9,21 +9,15 @@ import UIKit
 
 class CardsDisplayVC: UIViewController {
     
-    var regionSelected1 : String?
-    var regionSelected2 : String?
-    
-    let stackView = UIStackView()
-    let regionBubble1 = RCInfoView()
-    let regionBubble2 = RCInfoView()
+    var cardDisplayTitleView: CardDisplayTitleView!
     
     var collectionView: UICollectionView!
     var dataSource: UICollectionViewDiffableDataSource<Category, Card>!
     var bcCardList = BCCardList()
     
-    init(region1: String?, region2: String?) {
+    init(region1: RCImageView, region2: RCImageView) {
         super.init(nibName: nil, bundle: nil)
-        regionSelected1 = region1
-        regionSelected2 = region2
+        cardDisplayTitleView = CardDisplayTitleView(region1: region1, region2: region2)
     }
     
     required init?(coder: NSCoder) {
@@ -44,7 +38,7 @@ class CardsDisplayVC: UIViewController {
     }
     
     private func configureVC() {
-        title = "Card Display"
+        navigationItem.titleView = cardDisplayTitleView
         view.backgroundColor = .systemGroupedBackground
         navigationController?.navigationBar.prefersLargeTitles = true
         view.addSubview(collectionView)
@@ -70,34 +64,40 @@ class CardsDisplayVC: UIViewController {
     }
     
     private func configureDataSource() {
-
-        dataSource = UICollectionViewDiffableDataSource(collectionView: collectionView, cellProvider: { collectionView, indexPath, itemIdentifier in
+        
+        dataSource = UICollectionViewDiffableDataSource(collectionView: collectionView, cellProvider: { collectionView, indexPath, cardIdentifer in
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CardCell.reuseId, for: indexPath) as! CardCell
-            cell.cardImageView.image = itemIdentifier.cardFace
+            // The cardIdentifer is the UUID property of the Card data object
+            cell.cardImageView.image = cardIdentifer.cardFace
             return cell
         })
         
-        dataSource.supplementaryViewProvider = { collectionView, kind, indexPath in
-        
-          guard kind == UICollectionView.elementKindSectionHeader else {
-            return nil
-          }
-        
-          let view = collectionView.dequeueReusableSupplementaryView(
-            ofKind: kind,
-            withReuseIdentifier: CollectionViewHeaderReusableView.reuseId,
-            for: indexPath) as? CollectionViewHeaderReusableView
-    
-          let section = self.dataSource.snapshot()
-            .sectionIdentifiers[indexPath.section]
-            view?.titleLabel.text = section.rawValue
-          return view
+        // Adds header to datasource
+        dataSource.supplementaryViewProvider = {[weak self] collectionView, kind, indexPath in
+            guard let self = self else {return nil}
+            
+            guard kind == UICollectionView.elementKindSectionHeader else {
+                return nil
+            }
+            
+            // Renders a header view for all the sections
+            let headerView = collectionView.dequeueReusableSupplementaryView(
+                ofKind: kind,
+                withReuseIdentifier: CollectionViewHeaderReusableView.reuseId,
+                for: indexPath) as? CollectionViewHeaderReusableView
+            
+            let section = self.dataSource.snapshot().sectionIdentifiers[indexPath.section]
+            
+            headerView?.titleLabel.text = section.rawValue
+            
+            return headerView
         }
     }
     
     private func updateData(on cards: CardListProtocol) {
         var snapShot = NSDiffableDataSourceSnapshot<Category, Card>()
         
+        // Since Catefory is an enum, the cases act as its identifiers
         for category in Category.allCases {
             let cards = cards.cardList.filter { $0.category == category}
             snapShot.appendSections([category])

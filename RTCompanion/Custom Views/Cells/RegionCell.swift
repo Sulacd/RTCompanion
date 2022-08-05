@@ -34,6 +34,14 @@ class RegionCell: UICollectionViewCell {
         contentView.layer.cornerRadius = 20
         contentView.layer.masksToBounds = true
         
+        layer.cornerRadius = 20
+        layer.masksToBounds = false
+        
+        layer.shadowRadius = 8.0
+        layer.shadowOpacity = 0.10
+        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowOffset = CGSize(width: 0, height: 5)
+        
         contentView.addSubViews(regionImageView)
         
         let padding: CGFloat = 8

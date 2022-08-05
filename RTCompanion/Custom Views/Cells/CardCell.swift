@@ -23,18 +23,31 @@ class CardCell: UICollectionViewCell {
     }
     
     private func configure() {
-        contentView.backgroundColor = .clear
+        contentView.backgroundColor = .secondarySystemGroupedBackground
+        contentView.layer.cornerRadius = 20
+        contentView.layer.masksToBounds = true
+        
+        layer.cornerRadius = 20
+        layer.masksToBounds = false
+        
+        layer.shadowRadius = 8.0
+        layer.shadowOpacity = 0.3
+        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowOffset = CGSize(width: 0, height: 5)
         
         contentView.addSubViews(cardImageView)
         
-        let padding: CGFloat = 8
-        
         NSLayoutConstraint.activate([
-            cardImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: padding),
-            cardImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding),
-            cardImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -padding),
-            cardImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -padding)
+            cardImageView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            cardImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            cardImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            cardImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
         ])
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        // Improve scrolling performance with an explicit shadowPath
+        layer.shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: layer.cornerRadius).cgPath
+    }
 }

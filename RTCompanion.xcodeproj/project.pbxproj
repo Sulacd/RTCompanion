@@ -28,11 +28,11 @@
 		7B49E19D289AFB5400D703DF /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B49E19C289AFB5400D703DF /* Category.swift */; };
 		7B49E1A1289B150900D703DF /* CardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B49E1A0289B150900D703DF /* CardCell.swift */; };
 		7B49E1A3289B527700D703DF /* CollectionViewHeaderReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B49E1A2289B527700D703DF /* CollectionViewHeaderReusableView.swift */; };
-		7B5936F6289371190025F90F /* RCInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5936F5289371190025F90F /* RCInfoView.swift */; };
 		7B791D7528906AAC0003BF5F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B791D7428906AAC0003BF5F /* AppDelegate.swift */; };
 		7B791D7728906AAC0003BF5F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B791D7628906AAC0003BF5F /* SceneDelegate.swift */; };
 		7B791D7E28906AB00003BF5F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B791D7D28906AB00003BF5F /* Assets.xcassets */; };
 		7B791D8128906AB00003BF5F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B791D7F28906AB00003BF5F /* LaunchScreen.storyboard */; };
+		7BE196B8289CCD8700902DB8 /* CardDisplayTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE196B7289CCD8700902DB8 /* CardDisplayTitleView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,13 +57,13 @@
 		7B49E19C289AFB5400D703DF /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		7B49E1A0289B150900D703DF /* CardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCell.swift; sourceTree = "<group>"; };
 		7B49E1A2289B527700D703DF /* CollectionViewHeaderReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewHeaderReusableView.swift; sourceTree = "<group>"; };
-		7B5936F5289371190025F90F /* RCInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCInfoView.swift; sourceTree = "<group>"; };
 		7B791D7128906AAC0003BF5F /* RTCompanion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RTCompanion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B791D7428906AAC0003BF5F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7B791D7628906AAC0003BF5F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		7B791D7D28906AB00003BF5F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7B791D8028906AB00003BF5F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7B791D8228906AB00003BF5F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7BE196B7289CCD8700902DB8 /* CardDisplayTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDisplayTitleView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,8 +179,8 @@
 		7B49E1842897BFD500D703DF /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				7B5936F5289371190025F90F /* RCInfoView.swift */,
 				7B49E1882897C18900D703DF /* RCContainerView.swift */,
+				7BE196B7289CCD8700902DB8 /* CardDisplayTitleView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -318,8 +318,8 @@
 				7B3922772891F111009425F5 /* RegionCell.swift in Sources */,
 				7B49E1A3289B527700D703DF /* CollectionViewHeaderReusableView.swift in Sources */,
 				7B3922792891F180009425F5 /* RCImageView.swift in Sources */,
-				7B5936F6289371190025F90F /* RCInfoView.swift in Sources */,
 				7B39227C2891F761009425F5 /* UIHelper.swift in Sources */,
+				7BE196B8289CCD8700902DB8 /* CardDisplayTitleView.swift in Sources */,
 				7B392282289219F6009425F5 /* Regions.swift in Sources */,
 				7B49E1892897C18900D703DF /* RCContainerView.swift in Sources */,
 				7B49E18B2897C23800D703DF /* RCBodyLabel.swift in Sources */,
