@@ -15,8 +15,8 @@ class RegionSelectionVC: UIViewController {
     let stackView = UIStackView()
     let actionButton = RCButton(color: .systemTeal, title: "Get Cards", systemImageName: "square.stack.3d.up")
     
-    var regionSelected1: RCImageView!
-    var regionSelected2: RCImageView!
+    var regionSelected1: UIImage?
+    var regionSelected2: UIImage?
     
     var numOfCellsSelected = 0
 
@@ -38,6 +38,7 @@ class RegionSelectionVC: UIViewController {
     
     private func configureVC() {
         title = "Selection"
+        navigationItem.backButtonDisplayMode = .minimal
         view.backgroundColor = .systemGroupedBackground
         view.addSubViews(actionButton, collectionView)
         
@@ -98,11 +99,11 @@ extension RegionSelectionVC: UICollectionViewDelegate {
                     
                     if let _ = regionSelected1 {
                         cell.regionNum = 2
-                        regionSelected2 = cell.regionImageView
+                        regionSelected2 = cell.regionImageView.image
                         return
                     }
                     cell.regionNum = 1
-                    regionSelected1 = cell.regionImageView
+                    regionSelected1 = cell.regionImageView.image
                     return
                 }
                 return

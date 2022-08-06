@@ -28,7 +28,7 @@ class RCAlertVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.black.withAlphaComponent(0.15)
+        view.backgroundColor = UIColor.black.withAlphaComponent(0.1)
         configureContainerView()
     }
     

@@ -16,4 +16,11 @@ extension UIViewController {
         alertVC.modalTransitionStyle = .crossDissolve
         self.present(alertVC, animated: true)
     }
+    
+    
+    open override func awakeAfter(using coder: NSCoder) -> Any? {
+        navigationItem.backButtonDisplayMode = .minimal // This will help us to remove text
+        return super.awakeAfter(using: coder)
+    }
+    
 }

@@ -24,7 +24,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     func createNavController() -> UINavigationController {
         let regionSelectionVC = RegionSelectionVC()
-        regionSelectionVC.title = "Regions"
         return UINavigationController(rootViewController: regionSelectionVC)
     }
 

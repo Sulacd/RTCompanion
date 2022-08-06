@@ -37,6 +37,6 @@ enum BCCards {
     static let stressDefense = UIImage(named: "Stress Defense")
     static let transposition = UIImage(named: "Transposition")
     static let wallop = UIImage(named: "Wallop")
-    static let yordlePortle = UIImage(named: "Yordle Portle")
+    static let yordlePortle = UIImage(named: "Yordle Portal")
     static let yordlesInArms = UIImage(named: "Yordles in Arms")
 }

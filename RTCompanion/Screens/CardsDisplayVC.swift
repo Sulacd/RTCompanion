@@ -15,15 +15,23 @@ class CardsDisplayVC: UIViewController {
     var dataSource: UICollectionViewDiffableDataSource<Category, Card>!
     var bcCardList = BCCardList()
     
-    init(region1: RCImageView, region2: RCImageView) {
+    let manaSlider = ManaSlider()
+    
+// MARK: - Initializers
+
+    init(region1: UIImage?, region2: UIImage?) {
         super.init(nibName: nil, bundle: nil)
-        cardDisplayTitleView = CardDisplayTitleView(region1: region1, region2: region2)
+        if let region1 = region1, let region2 = region2 {
+            cardDisplayTitleView = CardDisplayTitleView(region1: region1, region2: region2)
+        }
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
    
+// MARK: - Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureCollectionView()
@@ -37,11 +45,24 @@ class CardsDisplayVC: UIViewController {
         navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
+// MARK: - UI Configurations
+    
     private func configureVC() {
         navigationItem.titleView = cardDisplayTitleView
         view.backgroundColor = .systemGroupedBackground
-        navigationController?.navigationBar.prefersLargeTitles = true
-        view.addSubview(collectionView)
+        view.addSubViews(collectionView, manaSlider)
+        
+        NSLayoutConstraint.activate([
+            collectionView.topAnchor.constraint(equalTo: view.topAnchor),
+            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -100),
+            
+            manaSlider.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -50),
+            manaSlider.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
+            manaSlider.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50),
+            manaSlider.heightAnchor.constraint(equalToConstant: 20)
+        ])
     }
     
     private func configureCollectionView() {
@@ -60,8 +81,10 @@ class CardsDisplayVC: UIViewController {
           withReuseIdentifier: CollectionViewHeaderReusableView.reuseId
         )
         
-        //collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
     }
+    
+// MARK: - UICollection View Datasource Methods
     
     private func configureDataSource() {
         
@@ -107,6 +130,8 @@ class CardsDisplayVC: UIViewController {
         dataSource.apply(snapShot, animatingDifferences: true)
     }
 }
+
+// MARK: - Extensions
 
 extension CardsDisplayVC: UICollectionViewDelegate {
     

@@ -38,7 +38,7 @@ class RegionCell: UICollectionViewCell {
         layer.masksToBounds = false
         
         layer.shadowRadius = 8.0
-        layer.shadowOpacity = 0.10
+        layer.shadowOpacity = 0.15
         layer.shadowColor = UIColor.black.cgColor
         layer.shadowOffset = CGSize(width: 0, height: 5)
         

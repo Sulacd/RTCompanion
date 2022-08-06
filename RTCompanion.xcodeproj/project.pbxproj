@@ -33,6 +33,7 @@
 		7B791D7E28906AB00003BF5F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B791D7D28906AB00003BF5F /* Assets.xcassets */; };
 		7B791D8128906AB00003BF5F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B791D7F28906AB00003BF5F /* LaunchScreen.storyboard */; };
 		7BE196B8289CCD8700902DB8 /* CardDisplayTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE196B7289CCD8700902DB8 /* CardDisplayTitleView.swift */; };
+		7BE196BF289EB4AF00902DB8 /* ManaSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE196BE289EB4AF00902DB8 /* ManaSlider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +65,7 @@
 		7B791D8028906AB00003BF5F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7B791D8228906AB00003BF5F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7BE196B7289CCD8700902DB8 /* CardDisplayTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDisplayTitleView.swift; sourceTree = "<group>"; };
+		7BE196BE289EB4AF00902DB8 /* ManaSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManaSlider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 		7B392284289223D4009425F5 /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
+				7BE196BD289EB49000902DB8 /* Sliders */,
 				7B49E1852897BFEC00D703DF /* View Controllers */,
 				7B49E1842897BFD500D703DF /* Views */,
 				7B49E1832897BFC300D703DF /* Buttons */,
@@ -231,6 +234,14 @@
 			path = RTCompanion;
 			sourceTree = "<group>";
 		};
+		7BE196BD289EB49000902DB8 /* Sliders */ = {
+			isa = PBXGroup;
+			children = (
+				7BE196BE289EB4AF00902DB8 /* ManaSlider.swift */,
+			);
+			path = Sliders;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -301,6 +312,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7BE196BF289EB4AF00902DB8 /* ManaSlider.swift in Sources */,
 				7B39228028920820009425F5 /* UIView+Ext.swift in Sources */,
 				7B49E18F289833F800D703DF /* CardsDisplayVC.swift in Sources */,
 				7B49E1912898D80100D703DF /* Card.swift in Sources */,
