@@ -28,22 +28,30 @@ enum UIHelper {
     
     static func createCompositionalLayout() -> UICollectionViewCompositionalLayout {
         
-        let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)))
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(0.26), heightDimension: .fractionalHeight(0.14)), subitems: [item])
+        let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0)))
+        
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(0.26), heightDimension: .fractionalWidth(0.26)), subitems: [item])
+                                                       
         let section = NSCollectionLayoutSection(group: group)
 
         section.orthogonalScrollingBehavior = .continuous
         section.interGroupSpacing = 10
-        section.contentInsets = .init(top: 0, leading: 10, bottom: 0, trailing: 10)
+        section.contentInsets = .init(top: 10, leading: 10, bottom: 0, trailing: 10)
         section.boundarySupplementaryItems = [supplementaryHeaderItem()]
         section.supplementariesFollowContentInsets = false
         
-        return UICollectionViewCompositionalLayout(section: section)
+        let config = UICollectionViewCompositionalLayoutConfiguration()
+        
+        config.interSectionSpacing = 18
+        
+        let layout = UICollectionViewCompositionalLayout(section: section, configuration: config)
+        
+        return layout
     }
     
     static func supplementaryHeaderItem() -> NSCollectionLayoutBoundarySupplementaryItem {
         NSCollectionLayoutBoundarySupplementaryItem(
-            layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .absolute(50)),
+            layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .estimated(60)),
             elementKind: UICollectionView.elementKindSectionHeader,
             alignment: .top)
     }

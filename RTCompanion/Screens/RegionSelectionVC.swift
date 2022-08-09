@@ -13,7 +13,7 @@ class RegionSelectionVC: UIViewController {
     
     var collectionView: UICollectionView!
     let stackView = UIStackView()
-    let actionButton = RCButton(color: .systemTeal, title: "Get Cards", systemImageName: "square.stack.3d.up")
+    let actionButton = RCButton(color: .systemCyan, title: "Get Cards", systemImageName: "square.stack.3d.up")
     
     var regionSelected1: UIImage?
     var regionSelected2: UIImage?

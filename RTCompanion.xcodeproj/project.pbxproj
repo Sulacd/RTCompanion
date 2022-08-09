@@ -34,6 +34,7 @@
 		7B791D8128906AB00003BF5F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B791D7F28906AB00003BF5F /* LaunchScreen.storyboard */; };
 		7BE196B8289CCD8700902DB8 /* CardDisplayTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE196B7289CCD8700902DB8 /* CardDisplayTitleView.swift */; };
 		7BE196BF289EB4AF00902DB8 /* ManaSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE196BE289EB4AF00902DB8 /* ManaSlider.swift */; };
+		7BE196C1289F379200902DB8 /* ManaCntLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE196C0289F379200902DB8 /* ManaCntLabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +67,7 @@
 		7B791D8228906AB00003BF5F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7BE196B7289CCD8700902DB8 /* CardDisplayTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDisplayTitleView.swift; sourceTree = "<group>"; };
 		7BE196BE289EB4AF00902DB8 /* ManaSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManaSlider.swift; sourceTree = "<group>"; };
+		7BE196C0289F379200902DB8 /* ManaCntLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManaCntLabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +150,7 @@
 		7B49E1802897BF6F00D703DF /* Labels */ = {
 			isa = PBXGroup;
 			children = (
+				7BE196C0289F379200902DB8 /* ManaCntLabel.swift */,
 				7B39227D289205B5009425F5 /* RCTitleLabel.swift */,
 				7B49E18A2897C23800D703DF /* RCBodyLabel.swift */,
 			);
@@ -330,6 +333,7 @@
 				7B3922772891F111009425F5 /* RegionCell.swift in Sources */,
 				7B49E1A3289B527700D703DF /* CollectionViewHeaderReusableView.swift in Sources */,
 				7B3922792891F180009425F5 /* RCImageView.swift in Sources */,
+				7BE196C1289F379200902DB8 /* ManaCntLabel.swift in Sources */,
 				7B39227C2891F761009425F5 /* UIHelper.swift in Sources */,
 				7BE196B8289CCD8700902DB8 /* CardDisplayTitleView.swift in Sources */,
 				7B392282289219F6009425F5 /* Regions.swift in Sources */,
@@ -483,8 +487,6 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -511,8 +513,6 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

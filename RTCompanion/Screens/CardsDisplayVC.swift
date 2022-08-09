@@ -16,6 +16,7 @@ class CardsDisplayVC: UIViewController {
     var bcCardList = BCCardList()
     
     let manaSlider = ManaSlider()
+    var manaCountLabel = ManaCntLabel()
     
 // MARK: - Initializers
 
@@ -50,25 +51,28 @@ class CardsDisplayVC: UIViewController {
     private func configureVC() {
         navigationItem.titleView = cardDisplayTitleView
         view.backgroundColor = .systemGroupedBackground
-        view.addSubViews(collectionView, manaSlider)
+        manaSlider.delegate = self
+        
+        view.addSubViews(collectionView, manaSlider, manaCountLabel)
         
         NSLayoutConstraint.activate([
-            collectionView.topAnchor.constraint(equalTo: view.topAnchor),
-            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -100),
-            
+
             manaSlider.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -50),
             manaSlider.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
             manaSlider.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50),
-            manaSlider.heightAnchor.constraint(equalToConstant: 20)
+            
+            manaCountLabel.centerXAnchor.constraint(equalTo: manaSlider.centerXAnchor),
+            manaCountLabel.bottomAnchor.constraint(equalTo: manaSlider.topAnchor, constant: -10),
+            
+            collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: manaCountLabel.topAnchor),
         ])
     }
     
     private func configureCollectionView() {
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: UIHelper.createCompositionalLayout())
-    
-        collectionView.collectionViewLayout = UIHelper.createCompositionalLayout()
         
         collectionView.backgroundColor = .systemGroupedBackground
         
@@ -135,4 +139,20 @@ class CardsDisplayVC: UIViewController {
 
 extension CardsDisplayVC: UICollectionViewDelegate {
     
+}
+
+extension CardsDisplayVC: ManaSliderDelegate {
+    func manaDidChange() {
+        var manaCntIndicator: String
+        if manaSlider.value == 9.0 {
+            manaCntIndicator = "\(Int(manaSlider.value))+ Mana"
+        }
+        else {
+            manaCntIndicator = "\(Int(manaSlider.value)) Mana"
+        }
+        manaCountLabel.text = manaCntIndicator
+    }
+    
+    // append or filter the main array based on mana cnt
+    // Call updateData on main array
 }

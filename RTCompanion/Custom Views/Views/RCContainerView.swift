@@ -9,7 +9,7 @@ import UIKit
 
 class RCContainerView: UIView {
     
-    var titleLabel = RCTitleLabel(textAlignment: .center, fontSize: 20)
+    var titleLabel = RCTitleLabel(textAlignment: .center, fontSize: 20, weight: .medium)
     var messageLabel = RCBodyLabel(textAlignment: .center)
     var actionButton = RCButton(color: .systemPink, title: "Ok", systemImageName: "xmark.octagon")
 

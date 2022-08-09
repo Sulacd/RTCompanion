@@ -8,8 +8,8 @@
 import Foundation
 
 struct BCCardList: CardListProtocol {
-    var cardList: [Card] = [
-        Card(cardFace: BCCards.busterShot, name: "Buster Shot", category: .slow),
+    var cardList: [Int:[Card]] = [
+        [Card(cardFace: BCCards.busterShot, name: "Buster Shot", category: .slow)],
         Card(cardFace: BCCards.cosmicBinding, name: "Cosmic Binding", category: .fast),
         Card(cardFace: BCCards.dropTheBomb, name: "Drop the Bomb", category: .slow),
         Card(cardFace: BCCards.flamespitter, name: "Flamespitter", category: .burst),

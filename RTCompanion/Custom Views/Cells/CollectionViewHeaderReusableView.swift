@@ -11,7 +11,7 @@ class CollectionViewHeaderReusableView: UICollectionReusableView {
     
     static let reuseId = "CollectionViewHeaderReusableView"
     
-    var titleLabel = RCTitleLabel(textAlignment: .left, fontSize: 25)
+    var titleLabel = RCTitleLabel(textAlignment: .left, fontSize: 25, weight: .light)
     
     override init(frame: CGRect) {
         super.init(frame: frame)

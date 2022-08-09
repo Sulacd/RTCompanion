@@ -24,6 +24,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     func createNavController() -> UINavigationController {
         let regionSelectionVC = RegionSelectionVC()
+        UINavigationBar.appearance().tintColor = .systemCyan
         return UINavigationController(rootViewController: regionSelectionVC)
     }
 
