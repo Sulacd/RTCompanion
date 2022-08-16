@@ -49,6 +49,7 @@ enum UIHelper {
         return layout
     }
     
+    // *(Step 3*) Layout for the Header View
     static func supplementaryHeaderItem() -> NSCollectionLayoutBoundarySupplementaryItem {
         NSCollectionLayoutBoundarySupplementaryItem(
             layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .estimated(60)),

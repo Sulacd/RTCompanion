@@ -32,6 +32,9 @@
 		7B791D7728906AAC0003BF5F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B791D7628906AAC0003BF5F /* SceneDelegate.swift */; };
 		7B791D7E28906AB00003BF5F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B791D7D28906AB00003BF5F /* Assets.xcassets */; };
 		7B791D8128906AB00003BF5F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B791D7F28906AB00003BF5F /* LaunchScreen.storyboard */; };
+		7BD7323B28A2FD1700027E06 /* ManaStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD7323A28A2FD1700027E06 /* ManaStepper.swift */; };
+		7BD7323D28A9949E00027E06 /* CardDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD7323C28A9949E00027E06 /* CardDetailVC.swift */; };
+		7BD7323F28A99E4E00027E06 /* RCSecondaryLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD7323E28A99E4E00027E06 /* RCSecondaryLabel.swift */; };
 		7BE196B8289CCD8700902DB8 /* CardDisplayTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE196B7289CCD8700902DB8 /* CardDisplayTitleView.swift */; };
 		7BE196BF289EB4AF00902DB8 /* ManaSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE196BE289EB4AF00902DB8 /* ManaSlider.swift */; };
 		7BE196C1289F379200902DB8 /* ManaCntLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE196C0289F379200902DB8 /* ManaCntLabel.swift */; };
@@ -65,6 +68,9 @@
 		7B791D7D28906AB00003BF5F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7B791D8028906AB00003BF5F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7B791D8228906AB00003BF5F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7BD7323A28A2FD1700027E06 /* ManaStepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManaStepper.swift; sourceTree = "<group>"; };
+		7BD7323C28A9949E00027E06 /* CardDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailVC.swift; sourceTree = "<group>"; };
+		7BD7323E28A99E4E00027E06 /* RCSecondaryLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCSecondaryLabel.swift; sourceTree = "<group>"; };
 		7BE196B7289CCD8700902DB8 /* CardDisplayTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDisplayTitleView.swift; sourceTree = "<group>"; };
 		7BE196BE289EB4AF00902DB8 /* ManaSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManaSlider.swift; sourceTree = "<group>"; };
 		7BE196C0289F379200902DB8 /* ManaCntLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManaCntLabel.swift; sourceTree = "<group>"; };
@@ -116,6 +122,7 @@
 		7B392284289223D4009425F5 /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
+				7BD7323928A2FCFB00027E06 /* Misc */,
 				7BE196BD289EB49000902DB8 /* Sliders */,
 				7B49E1852897BFEC00D703DF /* View Controllers */,
 				7B49E1842897BFD500D703DF /* Views */,
@@ -153,6 +160,7 @@
 				7BE196C0289F379200902DB8 /* ManaCntLabel.swift */,
 				7B39227D289205B5009425F5 /* RCTitleLabel.swift */,
 				7B49E18A2897C23800D703DF /* RCBodyLabel.swift */,
+				7BD7323E28A99E4E00027E06 /* RCSecondaryLabel.swift */,
 			);
 			path = Labels;
 			sourceTree = "<group>";
@@ -170,6 +178,7 @@
 			children = (
 				7B3922742891EBFB009425F5 /* RegionSelectionVC.swift */,
 				7B49E18E289833F800D703DF /* CardsDisplayVC.swift */,
+				7BD7323C28A9949E00027E06 /* CardDetailVC.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -235,6 +244,14 @@
 				7B791D8228906AB00003BF5F /* Info.plist */,
 			);
 			path = RTCompanion;
+			sourceTree = "<group>";
+		};
+		7BD7323928A2FCFB00027E06 /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+				7BD7323A28A2FD1700027E06 /* ManaStepper.swift */,
+			);
+			path = Misc;
 			sourceTree = "<group>";
 		};
 		7BE196BD289EB49000902DB8 /* Sliders */ = {
@@ -320,6 +337,8 @@
 				7B49E18F289833F800D703DF /* CardsDisplayVC.swift in Sources */,
 				7B49E1912898D80100D703DF /* Card.swift in Sources */,
 				7B49E1782894B19000D703DF /* Constants.swift in Sources */,
+				7BD7323F28A99E4E00027E06 /* RCSecondaryLabel.swift in Sources */,
+				7BD7323B28A2FD1700027E06 /* ManaStepper.swift in Sources */,
 				7B49E18D2897CA7600D703DF /* UIViewController+Ext.swift in Sources */,
 				7B49E1872897C02600D703DF /* RCAlertVC.swift in Sources */,
 				7B3922752891EBFB009425F5 /* RegionSelectionVC.swift in Sources */,
@@ -337,6 +356,7 @@
 				7B39227C2891F761009425F5 /* UIHelper.swift in Sources */,
 				7BE196B8289CCD8700902DB8 /* CardDisplayTitleView.swift in Sources */,
 				7B392282289219F6009425F5 /* Regions.swift in Sources */,
+				7BD7323D28A9949E00027E06 /* CardDetailVC.swift in Sources */,
 				7B49E1892897C18900D703DF /* RCContainerView.swift in Sources */,
 				7B49E18B2897C23800D703DF /* RCBodyLabel.swift in Sources */,
 				7B49E1992898DE9200D703DF /* BCCardList.swift in Sources */,

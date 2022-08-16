@@ -14,6 +14,8 @@ protocol ManaSliderDelegate: AnyObject {
 class ManaSlider: UISlider {
     
     weak var delegate: ManaSliderDelegate!
+    
+    //var timer: Timer? = nil
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -56,8 +58,16 @@ class ManaSlider: UISlider {
         value = roundedValue
         delegate.manaDidChange()
     }
+//
+//    // Debounce function taking a time interval to wait before firing after user input has stopped
+//    // and a function to execute when debounce has stopped being called for a period of time.
+//    private func debounce(seconds: TimeInterval, function: @escaping () -> Swift.Void ) {
+//        timer?.invalidate()
+//        timer = Timer.scheduledTimer(withTimeInterval: seconds, repeats: false, block: { _ in
+//            function()
+//        })
+//    }
     
-
 }
 
 

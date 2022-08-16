@@ -8,5 +8,5 @@
 import Foundation
 
 protocol CardListProtocol {
-    var cardList: [Int:[Card]] {get}
+    var cardListByMana: [Int:[Card]] {get}
 }

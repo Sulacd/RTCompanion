@@ -13,18 +13,42 @@ class CardsDisplayVC: UIViewController {
     
     var collectionView: UICollectionView!
     var dataSource: UICollectionViewDiffableDataSource<Category, Card>!
-    var bcCardList = BCCardList()
     
-    let manaSlider = ManaSlider()
+    var bcCardList = BCCardList()
+    var mutableCardList: [Card] = []
+    
+    let manaStepper = ManaStepper()
     var manaCountLabel = ManaCntLabel()
+    var manaValue: Int {
+        didSet {
+            if manaValue > oldValue {
+                if let cardsByMana = bcCardList.cardListByMana[manaValue] {
+                    mutableCardList.append(contentsOf: cardsByMana)
+                    DispatchQueue.main.async {
+                        self.updateData(on: self.mutableCardList)
+                    }
+                }
+            }
+            else if manaValue < oldValue {
+                if let cardsByMana = bcCardList.cardListByMana[oldValue] {
+                    mutableCardList = mutableCardList.filter {!cardsByMana.contains($0)}
+                    DispatchQueue.main.async {
+                        self.updateData(on: self.mutableCardList)
+                    }
+                }
+            }
+        }
+    }
     
 // MARK: - Initializers
 
     init(region1: UIImage?, region2: UIImage?) {
+        manaValue = Int(manaStepper.value)
         super.init(nibName: nil, bundle: nil)
         if let region1 = region1, let region2 = region2 {
             cardDisplayTitleView = CardDisplayTitleView(region1: region1, region2: region2)
         }
+        mutableCardList = bcCardList.cardListByMana[manaValue]!
     }
     
     required init?(coder: NSCoder) {
@@ -38,7 +62,7 @@ class CardsDisplayVC: UIViewController {
         configureCollectionView()
         configureVC()
         configureDataSource()
-        updateData(on: bcCardList)
+        updateData(on: mutableCardList)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -51,18 +75,17 @@ class CardsDisplayVC: UIViewController {
     private func configureVC() {
         navigationItem.titleView = cardDisplayTitleView
         view.backgroundColor = .systemGroupedBackground
-        manaSlider.delegate = self
+        manaStepper.delegate = self
         
-        view.addSubViews(collectionView, manaSlider, manaCountLabel)
+        view.addSubViews(collectionView, manaStepper, manaCountLabel)
         
         NSLayoutConstraint.activate([
 
-            manaSlider.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -50),
-            manaSlider.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
-            manaSlider.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50),
+            manaStepper.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -50),
+            manaStepper.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
-            manaCountLabel.centerXAnchor.constraint(equalTo: manaSlider.centerXAnchor),
-            manaCountLabel.bottomAnchor.constraint(equalTo: manaSlider.topAnchor, constant: -10),
+            manaCountLabel.centerXAnchor.constraint(equalTo: manaStepper.centerXAnchor),
+            manaCountLabel.bottomAnchor.constraint(equalTo: manaStepper.topAnchor, constant: -10),
             
             collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -78,6 +101,7 @@ class CardsDisplayVC: UIViewController {
         
         collectionView.delegate = self
         
+        // *(Step 1)* Register the Card Cells and the Header View
         collectionView.register(CardCell.self, forCellWithReuseIdentifier: CardCell.reuseId)
         collectionView.register(
           CollectionViewHeaderReusableView.self,
@@ -86,12 +110,14 @@ class CardsDisplayVC: UIViewController {
         )
         
         collectionView.translatesAutoresizingMaskIntoConstraints = false
+        
     }
     
 // MARK: - UICollection View Datasource Methods
     
     private func configureDataSource() {
         
+        // *(Step 2)* Dequeues the reusable cell and section header with an idenitifier 
         dataSource = UICollectionViewDiffableDataSource(collectionView: collectionView, cellProvider: { collectionView, indexPath, cardIdentifer in
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CardCell.reuseId, for: indexPath) as! CardCell
             // The cardIdentifer is the UUID property of the Card data object
@@ -121,38 +147,55 @@ class CardsDisplayVC: UIViewController {
         }
     }
     
-    private func updateData(on cards: CardListProtocol) {
+    private func updateData(on cards: [Card]) {
         var snapShot = NSDiffableDataSourceSnapshot<Category, Card>()
         
         // Since Catefory is an enum, the cases act as its identifiers
         for category in Category.allCases {
-            let cards = cards.cardList.filter { $0.category == category}
+            let cardsByCategory = cards.filter { $0.category == category}
             snapShot.appendSections([category])
-            snapShot.appendItems(cards, toSection: category)
+            snapShot.appendItems(cardsByCategory, toSection: category)
         }
         
         dataSource.apply(snapShot, animatingDifferences: true)
     }
+    
+    private func removeData(with identifier: [Card]) {
+        var snapShot = NSDiffableDataSourceSnapshot<Category, Card>()
+        snapShot.deleteItems(identifier)
+        dataSource.apply(snapShot, animatingDifferences: true)
+    }
+    
 }
 
 // MARK: - Extensions
 
 extension CardsDisplayVC: UICollectionViewDelegate {
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        if let identifier = dataSource.itemIdentifier(for: indexPath) {
+            let cardDetailVC = CardDetailVC(card: identifier)
+            
+            if let sheet = cardDetailVC.sheetPresentationController {
+                sheet.detents = [.medium()]
+                sheet.prefersGrabberVisible = true
+                sheet.preferredCornerRadius = 24.0
+            }
+            present(cardDetailVC, animated: true)
+        }
+    }
 }
 
-extension CardsDisplayVC: ManaSliderDelegate {
+extension CardsDisplayVC: ManaStepperDelegate {
     func manaDidChange() {
         var manaCntIndicator: String
-        if manaSlider.value == 9.0 {
-            manaCntIndicator = "\(Int(manaSlider.value))+ Mana"
+        if manaStepper.value == 9.0 {
+            manaCntIndicator = "\(Int(manaStepper.value))+ Mana"
         }
         else {
-            manaCntIndicator = "\(Int(manaSlider.value)) Mana"
+            manaCntIndicator = "\(Int(manaStepper.value)) Mana"
         }
         manaCountLabel.text = manaCntIndicator
+        manaValue = Int(manaStepper.value)
     }
-    
-    // append or filter the main array based on mana cnt
-    // Call updateData on main array
 }
