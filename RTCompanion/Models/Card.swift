@@ -12,6 +12,9 @@ struct Card: Hashable {
     let cardFace: UIImage?
     let name: String
     let category: Category
+    let manaCost: String
+    let description: String
+    let region: String
     let identifier = UUID()
     
     func hash(into hasher: inout Hasher) {

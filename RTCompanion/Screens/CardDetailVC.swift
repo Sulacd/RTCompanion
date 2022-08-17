@@ -10,6 +10,8 @@ import UIKit
 class CardDetailVC: UIViewController {
     
     var selectedCard: Card
+    lazy var cardDetailHeaderView = CardDetailHeaderView(card: selectedCard)
+    let cardDescriptionLabel = RCBodyLabel(textAlignment: .center)
 
     init(card: Card) {
         selectedCard = card
@@ -23,7 +25,6 @@ class CardDetailVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
-        print(selectedCard.name)
     }
 
     private func configure() {
@@ -37,5 +38,24 @@ class CardDetailVC: UIViewController {
         blurView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         
         view.addSubview(blurView)
+        blurView.contentView.addSubViews(cardDetailHeaderView, cardDescriptionLabel)
+        
+        cardDescriptionLabel.text = selectedCard.description
+        
+        NSLayoutConstraint.activate([
+            cardDetailHeaderView.topAnchor.constraint(equalTo: blurView.contentView.topAnchor),
+            cardDetailHeaderView.leadingAnchor.constraint(equalTo: blurView.contentView.leadingAnchor),
+            cardDetailHeaderView.trailingAnchor.constraint(equalTo: blurView.contentView.trailingAnchor),
+            cardDetailHeaderView.heightAnchor.constraint(equalToConstant: 50),
+            
+            cardDescriptionLabel.topAnchor.constraint(equalTo: cardDetailHeaderView.bottomAnchor),
+            cardDescriptionLabel.leadingAnchor.constraint(equalTo: blurView.contentView.leadingAnchor, constant: 10),
+            cardDescriptionLabel.trailingAnchor.constraint(equalTo: blurView.contentView.trailingAnchor, constant: -10),
+            cardDescriptionLabel.bottomAnchor.constraint(equalTo: blurView.contentView.bottomAnchor, constant: -10)
+        ])
+    }
+    
+    private func configureCardDescription() {
+        
     }
 }

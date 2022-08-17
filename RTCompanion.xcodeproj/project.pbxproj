@@ -35,6 +35,7 @@
 		7BD7323B28A2FD1700027E06 /* ManaStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD7323A28A2FD1700027E06 /* ManaStepper.swift */; };
 		7BD7323D28A9949E00027E06 /* CardDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD7323C28A9949E00027E06 /* CardDetailVC.swift */; };
 		7BD7323F28A99E4E00027E06 /* RCSecondaryLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD7323E28A99E4E00027E06 /* RCSecondaryLabel.swift */; };
+		7BD7324128AC44F800027E06 /* CardDetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD7324028AC44F800027E06 /* CardDetailHeaderView.swift */; };
 		7BE196B8289CCD8700902DB8 /* CardDisplayTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE196B7289CCD8700902DB8 /* CardDisplayTitleView.swift */; };
 		7BE196BF289EB4AF00902DB8 /* ManaSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE196BE289EB4AF00902DB8 /* ManaSlider.swift */; };
 		7BE196C1289F379200902DB8 /* ManaCntLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE196C0289F379200902DB8 /* ManaCntLabel.swift */; };
@@ -71,6 +72,7 @@
 		7BD7323A28A2FD1700027E06 /* ManaStepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManaStepper.swift; sourceTree = "<group>"; };
 		7BD7323C28A9949E00027E06 /* CardDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailVC.swift; sourceTree = "<group>"; };
 		7BD7323E28A99E4E00027E06 /* RCSecondaryLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCSecondaryLabel.swift; sourceTree = "<group>"; };
+		7BD7324028AC44F800027E06 /* CardDetailHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailHeaderView.swift; sourceTree = "<group>"; };
 		7BE196B7289CCD8700902DB8 /* CardDisplayTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDisplayTitleView.swift; sourceTree = "<group>"; };
 		7BE196BE289EB4AF00902DB8 /* ManaSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManaSlider.swift; sourceTree = "<group>"; };
 		7BE196C0289F379200902DB8 /* ManaCntLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManaCntLabel.swift; sourceTree = "<group>"; };
@@ -101,7 +103,7 @@
 		7B39227A2891F739009425F5 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				7B49E1772894B19000D703DF /* Constants.swift */,
+				7BD7324228AC8DD700027E06 /* Constants */,
 				7B39227B2891F761009425F5 /* UIHelper.swift */,
 				7B49E19A289918CF00D703DF /* Protocols.swift */,
 			);
@@ -196,6 +198,7 @@
 			children = (
 				7B49E1882897C18900D703DF /* RCContainerView.swift */,
 				7BE196B7289CCD8700902DB8 /* CardDisplayTitleView.swift */,
+				7BD7324028AC44F800027E06 /* CardDetailHeaderView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -252,6 +255,14 @@
 				7BD7323A28A2FD1700027E06 /* ManaStepper.swift */,
 			);
 			path = Misc;
+			sourceTree = "<group>";
+		};
+		7BD7324228AC8DD700027E06 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				7B49E1772894B19000D703DF /* Constants.swift */,
+			);
+			path = Constants;
 			sourceTree = "<group>";
 		};
 		7BE196BD289EB49000902DB8 /* Sliders */ = {
@@ -354,6 +365,7 @@
 				7B3922792891F180009425F5 /* RCImageView.swift in Sources */,
 				7BE196C1289F379200902DB8 /* ManaCntLabel.swift in Sources */,
 				7B39227C2891F761009425F5 /* UIHelper.swift in Sources */,
+				7BD7324128AC44F800027E06 /* CardDetailHeaderView.swift in Sources */,
 				7BE196B8289CCD8700902DB8 /* CardDisplayTitleView.swift in Sources */,
 				7B392282289219F6009425F5 /* Regions.swift in Sources */,
 				7BD7323D28A9949E00027E06 /* CardDetailVC.swift in Sources */,

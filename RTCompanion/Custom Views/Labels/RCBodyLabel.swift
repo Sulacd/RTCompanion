@@ -25,11 +25,12 @@ class RCBodyLabel: UILabel {
     
     private func configure() {
         textColor = .secondaryLabel
-        font = UIFont.preferredFont(forTextStyle: .body)
+        font = UIFont.preferredFont(forTextStyle: .body).withSize(20)
         adjustsFontForContentSizeCategory = true
         adjustsFontSizeToFitWidth = true
         minimumScaleFactor = 0.75
         lineBreakMode = .byWordWrapping
+        numberOfLines = 3
         translatesAutoresizingMaskIntoConstraints = false
     }
 }

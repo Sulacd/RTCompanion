@@ -23,18 +23,18 @@ struct Regions {
         Icons.runeterra
     ]
     
-    let regionNames : [String] = [
-        "Bandle City",
-        "Bilge Water",
-        "Demacia",
-        "Freljord",
-        "Ionia",
-        "Noxus",
-        "Piltover & Zaun",
-        "Shadow Isles",
-        "Shurima",
-        "Targon",
-        "Runeterra"
+    let regionLookUp : [String:UIImage?] = [
+        RegionNames.bandleCity : Icons.bandleCity,
+        RegionNames.bilgeWater : Icons.bilgeWater,
+        RegionNames.demacia : Icons.demacia,
+        RegionNames.freljord : Icons.freljord,
+        RegionNames.ionia : Icons.ionia,
+        RegionNames.noxus : Icons.noxus,
+        RegionNames.pAndZ : Icons.pAndZ,
+        RegionNames.sI : Icons.sI,
+        RegionNames.shurima : Icons.shurima,
+        RegionNames.targon : Icons.targon,
+        RegionNames.runeterra : Icons.runeterra
     ]
 }
 
